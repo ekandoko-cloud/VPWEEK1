@@ -1,7 +1,8 @@
 package com.example.soal_1_feli
 import java.util.*
 class App {
-    val scanner = Scanner(System.`in`)
+    val scannerString= Scanner(System.`in`)
+    val scannerInt = Scanner(System.`in`)
     var ListMenu = ArrayList<Menu>()
     var ListOrder = ArrayList<Order>()
 
@@ -24,8 +25,7 @@ class App {
             println("6. Delete Menu")
             println("7. Exit")
             print("Pilih menu: ")
-            val option : Int
-            option = scanner.nextInt()
+            val option : Int = scannerInt.nextInt()
 
             if (option == 1) {
                 makeOrder()
@@ -55,7 +55,7 @@ class App {
             return
         }
         println("")
-        println("——— DAFTAR MENU ———")
+        println("--- DAFTAR MENU ---")
         var number = 1
         for (item in ListMenu) {
             println("$number. ${item.name} - ${item.desc} - Rp${item.price}")
@@ -65,21 +65,21 @@ class App {
 
     fun addMenu() {
         print("food name: ")
-        val name : String = scanner.nextLine()
+        val name : String = scannerString.nextLine()
         if(name.isEmpty()){
             println("Invalid Name.")
             return
         }
 
         print("Description: ")
-        val desc : String = scanner.nextLine()
+        val desc : String = scannerString.nextLine()
         if(desc.isEmpty()){
             println("Invalid Description.")
             return
         }
 
         print("Price: ")
-        val price:Int = scanner.nextInt()
+        val price:Int = scannerInt.nextInt()
         if (price == 0) {
             println("Invalid Price.")
             return
@@ -92,7 +92,7 @@ class App {
     fun editMenu() {
         viewMenu()
         print("Choose the menu you want to edit: ")
-        val choice:Int = scanner.nextInt()
+        val choice:Int = scannerInt.nextInt()
         val index = choice - 1
         if (index < 0 || index >= ListMenu.size) {
             println("invalid choice.")
@@ -101,19 +101,19 @@ class App {
 
         val item = ListMenu[index]
         print("New name(empty it if you don't want it to change): ")
-        val name:String = scanner.nextLine()
+        val name:String = scannerString.nextLine()
         if (name != "") {
             item.name = name
         }
 
         print("New description(empty it if you want it to change): ")
-        val desc:String = scanner.nextLine()
+        val desc:String = scannerString.nextLine()
         if (desc != "") {
             item.desc = desc
         }
 
         print("New price(empty it if you dont want it to change): ")
-        val price:Int = scanner.nextInt()
+        val price:Int = scannerInt.nextInt()
         if (price != 0) {
             item.price = price
         }
@@ -123,7 +123,7 @@ class App {
     fun deleteMenu() {
         viewMenu()
         print("Choose the menu you want to delete: ")
-        val choice:Int = scanner.nextInt()
+        val choice:Int = scannerInt.nextInt()
         val index = choice - 1
         if (index < 0 || index >= ListMenu.size) {
             println("invalid number.")
@@ -152,7 +152,7 @@ class App {
         }
 
         print("Nama customer: ")
-        val customerName: String = scanner.nextLine()
+        val customerName: String = scannerString.nextLine()
         if (customerName == "") {
             println("name cant be empty")
             return
@@ -162,8 +162,8 @@ class App {
         var counter = true
         while (counter) {
             viewMenu()
-            print("Pick a number (0 to exit) ")
-            val choice : Int = scanner.nextInt()
+            print("Pick a number (0 to exit): ")
+            val choice : Int = scannerInt.nextInt()
             if (choice == 0) {
                 counter = false
             } else {
@@ -172,7 +172,7 @@ class App {
                     println("Invalid choice.")
                 } else {
                     print("Jumlah: ")
-                    val qty : Int = scanner.nextInt()
+                    val qty : Int = scannerInt.nextInt()
                     if (qty <= 0) {
                         println("Invalid amount.")
                     } else {
