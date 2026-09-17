@@ -24,4 +24,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "VP Week 1"
 include(":app")
- 
+include(":Soal-1-Feli")

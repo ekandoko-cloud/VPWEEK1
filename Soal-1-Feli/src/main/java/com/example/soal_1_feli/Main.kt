@@ -1,4 +1,5 @@
 package com.example.soal_1_feli
 
-class Main {
+fun main(){
+    println("Hello World")
 }
