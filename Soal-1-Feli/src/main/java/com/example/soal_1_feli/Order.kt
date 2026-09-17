@@ -18,13 +18,13 @@ class Order(
     }
 
     fun print(){
-        println("——— $namaCust's Order ———")
+        println("--- $namaCust's Order ---")
         var count = 1
         for(item in pesanan){
-            println("$count. ${item.Namamenu} x${item.quantity}   Rp${item.price}")
+            println("$count. ${item.Namamenu} x${item.quantity}   $${item.price}")
             count++
         }
-        println("—————————————————————————")
-        println("TOTAL      Rp${getTotal()}")
+        println("-------------------------")
+        println("TOTAL      $${getTotal()}")
     }
 }
